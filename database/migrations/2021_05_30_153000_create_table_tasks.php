@@ -13,7 +13,7 @@ class CreateTableTasks extends Migration
      */
     public function up()
     {
-        Schema::create('table_tasks', function (Blueprint $table) {
+        Schema::create('tasks', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->boolean('completed');
@@ -28,6 +28,6 @@ class CreateTableTasks extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('table_tasks');
+        Schema::dropIfExists('tasks');
     }
 }
