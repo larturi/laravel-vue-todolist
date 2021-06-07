@@ -21,12 +21,18 @@ class TaskController extends Controller
 
     public function index()
     {
+        // return csrf_token(); 
         return $this->taskService->index();
     }
 
     public function store(Request $request)
     {
         return $this->taskService->store($request);
+    }
+
+    public function update(Request $request, $id)
+    {
+        return $this->taskService->update($request, $id);
     }
 
 }

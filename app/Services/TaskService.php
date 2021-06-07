@@ -25,4 +25,16 @@ class TaskService extends BaseService
         return $task;
     }
 
+    public function update($request, $id)
+    {
+        $task = Task::find($id);
+        $task->name = $request->name;
+        $task->completed = $request->completed;
+        $task->save();
+
+        return $task;
+    }
+
+    
+
 }
