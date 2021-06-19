@@ -35,6 +35,14 @@ class TaskService extends BaseService
         return $task;
     }
 
+    public function destroy($id)
+    {
+        $task = Task::find($id);
+        $task->delete();
+
+        return $task;
+    }
+
     
 
 }

@@ -21,6 +21,8 @@ class TaskController extends Controller
 
     public function index()
     {
+        // Para postman, si pide token descomentar la linea de abajo y correr:
+        // http://todolist-vue-laravel-server.test/api/tasks
         // return csrf_token(); 
         return $this->taskService->index();
     }
@@ -33,6 +35,11 @@ class TaskController extends Controller
     public function update(Request $request, $id)
     {
         return $this->taskService->update($request, $id);
+    }
+
+    public function destroy($id)
+    {
+        return $this->taskService->destroy($id);
     }
 
 }
