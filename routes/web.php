@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\TaskController;
 
 /*
@@ -14,5 +15,14 @@ use App\Http\Controllers\TaskController;
 |
 */
 
-// CRUD Tasks
+// Página de Inicio
+Route::get('/', function () {
+    return redirect('tasks');
+});
+
+// Tasks Panel
+Route::get('/tasks', 'App\Http\Controllers\AppController@index');
+
+
+// CRUD Tasks API
 Route::apiResource('api/tasks', TaskController::class);

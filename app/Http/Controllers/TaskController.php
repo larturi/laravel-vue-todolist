@@ -3,20 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Services\TaskService;
-
-use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 
+use App\Services\TaskService;
 class TaskController extends Controller
 {
-
     protected $taskService;
 
     public function __construct(
         TaskService $taskService
     ) {
         $this->taskService = $taskService;
+    }
+
+    public function panel()
+    {
+        dd("Hola");
     }
 
     public function index()
