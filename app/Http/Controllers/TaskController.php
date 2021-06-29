@@ -16,17 +16,9 @@ class TaskController extends Controller
         $this->taskService = $taskService;
     }
 
-    public function panel()
+    public function index(Request $request)
     {
-        dd("Hola");
-    }
-
-    public function index()
-    {
-        // Para postman, si pide token descomentar la linea de abajo y correr:
-        // http://todolist-vue-laravel-server.test/api/tasks
-        // return csrf_token(); 
-        return $this->taskService->index();
+        return $this->taskService->index($request);
     }
 
     public function store(Request $request)

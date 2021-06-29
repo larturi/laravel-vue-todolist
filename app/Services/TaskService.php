@@ -11,9 +11,20 @@ class TaskService extends BaseService
 
     public function __construct() {}
     
-    public function index()
+    public function index($request)
     {
-       return Task::orderBy('created_at', 'desc')->where('deleted', false)->get();
+       if($request->completed) {
+            return Task::orderBy('created_at', 'desc')
+                ->where('deleted', false)
+                ->where('completed', true)
+                ->get();
+       } else {
+            return Task::orderBy('created_at', 'desc')
+                ->where('deleted', false)
+                ->where('completed', false)
+                ->get();
+       }
+       
     }
 
     public function store($request)

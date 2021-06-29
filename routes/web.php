@@ -23,6 +23,5 @@ Route::get('/', function () {
 // Tasks Panel
 Route::get('/tasks', 'App\Http\Controllers\AppController@index');
 
-
 // CRUD Tasks API
 Route::apiResource('api/tasks', TaskController::class);
