@@ -14,12 +14,12 @@ class TaskService extends BaseService
     public function index($request)
     {
        if($request->completed) {
-            return Task::orderBy('created_at', 'desc')
+            return Task::orderBy('created_at', 'asc')
                 ->where('deleted', false)
                 ->where('completed', true)
                 ->get();
        } else {
-            return Task::orderBy('created_at', 'desc')
+            return Task::orderBy('created_at', 'asc')
                 ->where('deleted', false)
                 ->where('completed', false)
                 ->get();
@@ -42,8 +42,8 @@ class TaskService extends BaseService
     {
         $task = Task::find($id);
         $task->name = $request->name;
-        $task->completed = $request->completed;
-        $task->deleted = $request->deleted;
+        $task->completed = $request->completed || false;
+        $task->deleted = $request->deleted || false;
         $task->save();
 
         return $task;
