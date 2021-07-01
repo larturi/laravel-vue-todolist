@@ -12,6 +12,7 @@ class VerifyCsrfToken extends Middleware
      * @var array
      */
     protected $except = [
-        'http://todolist-vue-laravel-server.test/api/*'
+        'http://todolist-vue-laravel-server.test/api/*',
+        'http://todolist-vue.cloudapp.com.ar/api/*',
     ];
 }
